@@ -1,0 +1,62 @@
+.navBar{
+    background-color: var(--dark);
+    min-width: 200px;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    gap: 2vh;
+    flex-direction: column;
+    box-shadow: 6px 10px 31px 0px rgba(59,53,53,0.75);
+}
+
+.navBar img{
+    width: 40px;
+    height: auto;
+    opacity: 0.7;
+}
+
+.navBar img:hover{
+    cursor: pointer;
+    opacity: 0.1;
+}
+
+.navBar p{
+    opacity: 0.7;
+    border: 2px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 100ms ease-in-out;
+}
+
+.navBar p:hover{
+    opacity: 1;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+/* menu fechado */
+.navBarClosed{
+    background-color: var(--dark);
+    width: 90px;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    box-shadow: 6px 10px 31px 0px rgba(59,53,53,0.75);
+}
+
+.navBarClosed p{
+    display: none;
+}
+
+.navBarClosed img{
+    width: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.navBarClosed img:hover{
+    cursor: pointer;
+    opacity: 0.1;
+}
