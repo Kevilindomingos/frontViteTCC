@@ -1,3 +1,4 @@
+/*  */
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { Menu } from "./components/menu";
