@@ -4,8 +4,8 @@ import style from './App.module.css'
 import { api } from './api/api'
 import { useNavigate } from 'react-router'
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp, User, Check, UserRound } from 'lucide-react';
-import { select } from './components/select'
+import logoTipo from './assets/logo.png'
+
 
 function App() {
   const navigate = useNavigate();
@@ -40,68 +40,40 @@ function App() {
   }
 
   return (
-    <div className={style.wrapLogin}>
-
-    <div className={style.wrapImg}>
-      <div className={style.degrade}></div>
-    </div>
-    <div className={style.wrapForm}>
-      <form onSubmit={handleLogin}>
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-        <h2>Login</h2>
-        </div>
-        <div style={{position: "relative", width: "100%"}}>
-          <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div style={{position: "relative", width: "100%"}}>
-          <input type={showPassword ? 'text' : 'password'} placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
-
-        <div className={style.select}>
-          <div className={style.categorySelect}>
-            <label htmlFor="options-view-button">Categoria</label>
-            <input type="checkbox" className={style.optionsViewButton}/>
-
-            <div className={style.selectButton}>
-              <div className={style.selectedValue}>Selecione a categoria</div>
-
-              <div className={style.chevrons}>
-                <ChevronDown className={style.ChevronDown}/>
-                <ChevronUp className={style.ChevronUp}/>
-              </div>
-            </div>
+  <>
+  <div className={style.wrapImg}>
+    <div className={style.wrapLogin}></div>
+    <div className={style.blocoLogin}>
+      <div className={style.wrapForm}>
+       <img src={logoTipo} alt="imagem de logo" style={{ marginBottom: "4vh", width: "170px", height: "auto", display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}} className={style.fotoLogo}/>
+        <h1 className={style.tituloLogo}>GRAND CLUB <br/>BLUE ROMA</h1>      
+      </div>
+      <div className={style.wrapForm1}>
+        <form onSubmit={handleLogin}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           </div>
-
-          <ul className={style.options}>
-            <li className={style.option}>
-              <input type="radio" placeholder='Responsável' value={type} onChange={(e) => setType(e.target.value)} required />
-              <User className={style.responsavel}/>
-              <span className={style.label}>Responsável</span>
-              <Check className={style.checkIcon}/>
-            </li>
-          </ul>
-
-          <ul className={style.options}>
-            <li className={style.option}>
-              <input type="radio" placeholder='Funcionário' value={type} onChange={(e) => setType(e.target.value)} required />
-              <UserRound className={style.responsavel}/>
-              <span className={style.label}>Funcionário</span>
-              <Check className={style.checkIcon}/>
-            </li>
-          </ul>
-        </div>
-
-        <button type='submit'>Entrar</button>
-        <p>{message}</p>
-      </form>
+          <div style={{ position: "relative", width: "100%" }}>
+            <input type="email" placeholder='Digite seu E-mail' value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+          <div style={{ position: "relative", width: "100%" }}>
+            <input type={showPassword ? 'text' : 'password'} placeholder='Digite sua senha' value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
+          <div className={style.selectWrapper}>
+            <label htmlFor="type">Categoria</label>
+            <select id="type" value={type} onChange={(e) => setType(e.target.value)} required>
+              <option value="">Selecione a categoria</option>
+              <option value="responsavel">Responsável</option>
+              <option value="funcionario">Funcionário</option>
+            </select>
+          </div>
+          <button type='submit'>Entrar</button>
+          <p>{message}</p>
+        </form>
+      </div>
     </div>
-
-  </div>
+    </div>
+    </>
   )
 }
 
-export default App
-
-{/* <div style={{position: "relative", width: "100%"}}>
-          <input type="type" placeholder='Type' value={type} onChange={(e) => setType(e.target.value)} required />
-        </div> */}
+export default App  

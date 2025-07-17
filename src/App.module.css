@@ -1,15 +1,21 @@
+.blocoLogin{
+ display: flex;
+ justify-content: space-between;
+}
+
 .wrapLogin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row-reverse; /* inverte os lados */
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  flex-wrap: wrap;
 }
 
 .wrapImg {
-    width: 50%;
+    width: 100%;
     height: 100vh;
-    background-image: url('./assets/wallpaperbg.webp');
+    background-image: url('./assets/fundoLogin.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -17,66 +23,64 @@
     animation: nois 1s linear;
 }
 
-.degrade {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(247, 254, 255, 0) 0%, rgba(9, 9, 9, 1) 100%);
-}
-
 .wrapForm {
-    width: 50%;
+    width: 641px;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--black);
+    background-color: #630000f7;
     color: var(--white);
+    flex-direction: column;
 }
 
-.wrapForm form{
-    height: 500px;
-    width: 400px;
-    border: 2px solid var(--light);
-    padding: 40px;
+.tituloLogo{
+    display: flex;
+    text-wrap: wrap;
+    font-family: "Cinzel", serif;
+    text-align: center;
+}
+
+.wrapForm1{
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapForm1 form{
+    height: 600px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
-    box-shadow: var(--light) 0px 5px 15px;
     gap: 2vh;
     animation: faderight 1s ease-in-out;
+    z-index: 999;
 }
 
-.wrapForm h2{
-    color: var(--light);
-    width: 100%;
-    text-shadow: var(--light) 0px 5px 15px;
-}
-
-.wrapForm input{
+.wrapForm1 input{
     padding: 10px;
     border-radius: 10px;
     width: 100%;
     border: none;
-    border: 2px solid var(--light);
-    background-color: var(--dark);
-    color: var(--white);
+    border: none;
+    background-color: rgba(255, 255, 255, 0.842);
 }
 
-.wrapForm input:focus{
+.wrapForm1 input:focus{
    outline: none;
    outline: 1px solid var(--white)
 }
 
-.wrapForm input::placeholder{
-    color: var(--light);
+.wrapForm1 input::placeholder{
+    color: var(--redText);
 }
 
-.wrapForm button{
+.wrapForm1 button{
     padding: 10px;
     border-radius: 10px;
     width: 100%;
@@ -88,7 +92,7 @@
     font-weight: bold;
 }
 
-.wrapForm button:hover{
+.wrapForm1 button:hover{
     border: 2px solid transparent;
     background-color: var(--light);
     color: var(--white);
@@ -96,13 +100,13 @@
     box-shadow: var(--light) 0px 5px 15px;
 }
 
-.wrapForm .userCad{
+.wrapForm1 .userCad{
     color: var(--white);
     opacity: 0.5;
     font-size: 0.7rem;
 }
 
-.wrapForm .userCad:hover{
+.wrapForm1 .userCad:hover{
     opacity: 1;
     cursor: pointer;
 }
@@ -136,7 +140,7 @@
         display: none;
     }
     .wrapLogin {
-        background-image: url('./assets/wallpaperbg.webp');
+        background-image: url('./assets/fundoLogin.webp');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -148,144 +152,36 @@
     .wrapForm form{
         background-color: var(--black);
     }
-    
 }
 
 /* css para a barra de categoria */
-.select {
-    padding: .5rem;
+.selectWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.categorySelect label {
-    font-size: 0.75rem;
-    letter-spacing: 0.255rem;
-}
-.selectButton {
-    margin-top: .5rem;
-    display: flex;
-    padding: 0.75rem;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: .375rem;
-    border: 1px solid black;
-    background-color: #17171A;
-}
-.selectedValue {
-    color: #AFABB6;
-    font-size: 0.875rem;
-    letter-spacing: 0.02625rem;
-}
-.chevrons svg {
-    width: 1rem;
-    height: 1rem;
-}
-.chevrons {
-    color: #AFABB6;
-} 
-.chevronUp {
-    display: none;
+.selectWrapper label {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-/* css ao clicar na barra de categorias */
-.optionsViewButton:focus + .selectButton, .optionsViewButton:checked + .selectButton {
-    outline: 1px solid #A881E6;
+.selectWrapper select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--light);
+  background-color: var(--dark);
+  color: var(--white);
+  font-size: 1rem;
 }
 
-.categorySelect:has(.optionsViewButton:checked) label, .optionsViewButton:checked + .selectButton .chevrons {
-    color: #A881E6;
+.selectWrapper select:focus {
+  outline: none;
+  border-color: var(--white);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
 }
-
-.categorySelect:has(.optionsViewButton:checked) label, .optionsViewButton:checked + .selectButton .chevronDown {
-    display: none;
-}
-.categorySelect:has(.optionsViewButton:checked) label, .optionsViewButton:checked + .selectButton .chevronUp {
-    display: block;
-}
-
-.categorySelect {
-    position: relative;
-}
-
-.optionsViewButton {
-    all: unset;
-    position: absolute;
-    inset: 0;
-    cursor: pointer;
-    z-index: 3;
-    border: 1px solid red;
-}
-
-/* estilização das labels select */
-
-.options {
-    margin-top: .25rem;
-    border-radius: .375rem;
-    background: #17171A;
-
-}
-
-.option {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .75rem;
-    width: 100%;
-    border-bottom: 1px solid #353529;
-    position: relative;
-}
-
-.option label {
-    color: #FBF9FE;
-}
-.option svg {
-    width: 1rem;
-    height: 1rem;
-}
-
-.option svg:last-child{
-    margin-left: auto;
-    color: #A881E6;
-    display: none;
-}
-
-.checkIcon{
-    display: none;
-}
-/* estilizando estado do hover */
-
-.option:has(input:checked), .option:hover {
-    border-bottom: 1px solid #252529;
-    background-color: #252529;
-}
-
-.option:has(input:focus) {
-    outline: 1px solid #A881E6;
-}
-
-.option:has(input:checked) .checkIcon {
-    display: block;
-}
-
-.option input[type="radio"] {
-    all: unset;
-    position: absolute;
-    inset: 0;
-    cursor: pointer;
-    outline: 1px solid red;
-}
-
-.categorySelect:has(.optionsViewButton:checked) .options {
-    display: block;
-}
-
-.select:has(.option input:checked) .categorySelect label {
-    color: #A881E6;
-}
-
-.select:has(.option input:checked) .categorySelect {
-    color: #FBF9FE;
-}
-
 
 @media (width < 500px){
     .wrapForm {
