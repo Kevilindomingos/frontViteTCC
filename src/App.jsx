@@ -59,7 +59,6 @@ function App() {
             <input type={showPassword ? 'text' : 'password'} placeholder='Digite sua senha' value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
           <div className={style.selectWrapper}>
-            <label htmlFor="type">Categoria</label>
             <select id="type" value={type} onChange={(e) => setType(e.target.value)} required>
               <option value="">Selecione a categoria</option>
               <option value="responsavel">Responsável</option>
