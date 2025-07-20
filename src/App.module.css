@@ -106,8 +106,8 @@
     cursor: pointer;
 }
 
+
 p{
-    background-color: var(--redText);
     padding: 10px;
     border-radius: 12px;
     color: var(--white);
@@ -118,6 +118,7 @@ p{
     transition: all 250ms ease-in-out;
 }
 p:hover{
+  background-color: var(--redText);
     box-shadow: 9px 9px 10px -1px rgba(26, 1, 1, 0.877);
 }
 @keyframes faderight {
