@@ -1,3 +1,27 @@
+/* estilização do menu superior */
+
+.menuSuperior {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background-color: #630000; /* ou a cor do teu header */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.455); /* opcional: sombra para destaque */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.divMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .sessaoCarousel{
     height: 100vh;
 }
@@ -69,10 +93,30 @@
   padding: 10px 20px;
 }
 
+.sliderContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.textoSlider h4{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  background-color: #f9f4e385;
+  padding: 2rem;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+}
+
 /* estilo cards valores*/
 
 .cards{
-    height: 70vh;
+    height: 60vh;
     background-color: #F9F4E3;
     color: #000;
 }
@@ -87,8 +131,7 @@
     overflow: hidden;
     cursor: pointer;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    background-color: #630000ab;
+    background-color: #8d4843;
     margin: 10vh;
 }
 
@@ -128,9 +171,9 @@
 
 .cardComplemento p{
   width: 350px;
-  margin: -8vh auto 3vh auto;
+  margin: -12vh auto 3vh auto;
   padding: 12px 16px;
-  background-color: #630000ab;
+  background-color: #8d4843;
   border: 1px solid #ccc;
   border-top: none;
   border-radius: 0 0 15px 15px;
@@ -199,6 +242,74 @@
   font-weight: bold;
   flex-direction: row;
   position: none;
+}
+
+/* modal estilo */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  background-color: #F9F4E3;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 500px;
+  max-width: 95%;
+  position: relative;
+}
+
+.fecharModal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.modalEsquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.modalFoto {
+  height: 111px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.textoModal {
+  background-color: #8d4843;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Chivo", sans-serif;
+  width: 100%;
+}
+
+.modalDireita {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 

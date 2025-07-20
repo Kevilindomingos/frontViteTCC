@@ -1,22 +1,48 @@
-import { Menu } from "./components/menu";
 import styles from "./aboutUs.module.css"
 import { useEffect, useState, useRef } from 'react';
-import slide1 from './assets/slide1.jpg';
-import slide2 from './assets/slide2.jpg';
-import slide3 from './assets/slide3.jpg';
 
-import logoMissao from './assets/logoMissao.png'
-import logoValor from './assets/logoValor.png'
-import logoFilosofia from './assets/logoFilosofia.png'
-import logo from './assets/logo.png'
-import userIcon from './assets/userIcon.png'
-import logoWhats from './assets/logoWhats.png'
-import logoInsta from './assets/logoInsta.png'
-import logoFace from './assets/logoFace.png'
+/* imagens importadas */
+import slide1         from './assets/slide1.jpg';
+import slide2         from './assets/slide2.jpg';
+import slide3         from './assets/slide3.jpg';
+import larissaTaxad   from './assets/larisaTaxad.png'
+import cleitonAssis   from './assets/cleitonAssis.png'
+import jairMessiano   from './assets/jairMessiano.png'
+import logoMissao     from './assets/logoMissao.png';
+import logoValor      from './assets/logoValor.png';
+import logoFilosofia  from './assets/logoFilosofia.png';
+import logo           from './assets/logo.png';
+import userIcon       from './assets/userIcon.png';
+import logoWhats      from './assets/logoWhats.png';
+import logoInsta      from './assets/logoInsta.png';
+import logoFace       from './assets/logoFace.png';
 
+const colaboradores = [
+  {
+    nome: "Cleiton Assis Pinto",
+    idade: 25,
+    cargo: "Auxiliar de cuidador de idosos",
+    email: "cleiton.assis@gmail.com",
+    imagem: cleitonAssis
+  },
+  {
+    nome: "Larissa Taxad",
+    idade: 27,
+    cargo: "Auxiliar de vida sênior",
+    email: "larissataxad@gmail.com",
+    imagem: larissaTaxad
+  },
+  {
+    nome: "Jair Messiano",
+    idade: 40,
+    cargo: "Cuidador de idosos sênior",
+    email: "jair.messiano@gmail.com",
+    imagem: jairMessiano
+  },
+];
 
 function AboutUs() {
-
+  
   const [ativo, setAtivo] = useState(null);
 
   const toggleCard = (indice) => {
@@ -99,45 +125,64 @@ const imagens = [slide1, slide2, slide3];
   }, []);
 
 
+  const [modalAberto, setModalAberto] = useState(false);
+  const [colaboradorSelecionado, setColaboradorSelecionado] = useState(null);
+
+  const abrirModal = (colab) => {
+    setColaboradorSelecionado(colab);
+    setModalAberto(true);
+  };
+
+  const fecharModal = () => {
+    setModalAberto(false);
+    setColaboradorSelecionado(null);
+  };
+
  return(
     <>
     {/* menu */}
-    <section id="home" className={styles.slider}>
-        <div
-      className={styles.slider}
-      ref={sliderRef}
-      onMouseEnter={pausarAutoSlide}
-      onMouseLeave={iniciarAutoSlide}
-    >
-      <div
-  className={styles.list}
-  style={{ transform: `translateX(-${itemAtivo * 100}%)` }}
->
-  {imagens.map((img, index) => (
-    <div key={index} className={styles.item}>
-      <img src={img} alt={`Slide ${index + 1}`} loading="lazy" />
+    <header className={styles.menuSuperior}>
+    <div className={styles.divMenu}>
+      <a href="/"><img src={logo} alt="logo do menu" style={{height: "56px"}}/></a>
+      <a href="/list"><img src={userIcon} alt="logo de user"/></a>
     </div>
-  ))}
-</div>
+    </header>
 
-      <div className={styles.buttons}>
-        <button id="prev" onClick={irParaAnterior} className={styles.prev}>❮</button>
-        <button id="next" onClick={irParaProximo} className={styles.next}>❯</button>
-      </div>
-
-      <div className={styles.thumbnail} ref={thumbnailRef}>
-        {imagens.map((img, index) => (
-          <div
-            key={index}
-            className={`${styles.item} ${index === itemAtivo ? styles.active : ''}`}
-            onClick={() => setItemAtivo(index)}
-          >
-            <img src={img} alt={`Thumbnail ${index + 1}`} loading="lazy" />
-          </div>
-        ))}
-      </div>
+  {/* seção sobre nós */}
+  <section id="home" className={styles.slider}>
+  <div className={styles.sliderContainer} ref={sliderRef} onMouseEnter={pausarAutoSlide} onMouseLeave={iniciarAutoSlide}>
+    
+    <div className={styles.list} style={{ transform: `translateX(-${itemAtivo * 100}%)` }}>
+      {imagens.map((img, index) => (
+        <div key={index} className={styles.item}>
+          <img src={img} alt={`Slide ${index + 1}`} loading="lazy" />
+        </div>
+      ))}
     </div>
-    </section>
+
+    <div className={styles.buttons}>
+      <button id="prev" onClick={irParaAnterior} className={styles.prev}>❮</button>
+      <button id="next" onClick={irParaProximo} className={styles.next}>❯</button>
+    </div>
+
+    <div className={styles.thumbnail} ref={thumbnailRef}>
+      {imagens.map((img, index) => (
+        <div key={index} className={`${styles.item} ${index === itemAtivo ? styles.active : ''}`} onClick={() => setItemAtivo(index)}>
+          <img src={img} alt={`Thumbnail ${index + 1}`} loading="lazy" />
+        </div>
+      ))}
+    </div>
+
+    <div className={styles.textoSlider}>
+      <h4 style={{ color: "#630000" }}>
+        Grand Club Florença é uma empresa especializada no cuidado e bem-estar de idosos, fundada em 14 de março de 2023.
+        Desde sua criação, a instituição tem como missão oferecer um ambiente seguro, acolhedor e humanizado para a terceira idade,
+        priorizando a qualidade de vida, a autonomia e o respeito à individualidade de cada residente.
+      </h4>
+    </div>
+  </div>
+</section>
+
 
 {/* cards de Valores */}
     <section className={styles.cards}>
@@ -185,7 +230,6 @@ const imagens = [slide1, slide2, slide3];
       <img src={logoValor} alt="Imagem" className={styles.cardImg} />
       <div className={styles.cardTexto}>
         <h3>Valores</h3>
-        
       </div>
     </div>
       
@@ -196,36 +240,45 @@ const imagens = [slide1, slide2, slide3];
       </div>
     </div>
     </section>
+
     {/* texto da section */}
     <div className={styles.tituloS2}>
       <h5>CONHEÇA NOSSOS COLABORADORES</h5>
     </div>
+
     {/* cards de colaboradores */}
-    <section className={styles.funcionarios}>
-        <div className={styles.cardFunc}>
-      <img src={userIcon} alt="Imagem" className={styles.cardImgFunc} />
-      <div className={styles.cardTextoFunc}>
-        <h3 className={styles.ttFunc}>Cleiton Assis Pinto</h3>
-      </div>
-    </div>
+     <section className={styles.funcionarios}>
+      {colaboradores.map((colab, index) => (
+        <div key={index} className={styles.cardFunc} onClick={() => abrirModal(colab)}>
+          <img src={userIcon} alt="Imagem" className={styles.cardImgFunc} />
+          <div className={styles.cardTextoFunc}>
+            <h3 className={styles.ttFunc}>{colab.nome}</h3>
+          </div>
+        </div>
+      ))}
 
-    <div className={styles.cardFunc}>
-      <img src={userIcon} alt="Imagem" className={styles.cardImgFunc} />
-      <div className={styles.cardTextoFunc}>
-        <h3 className={styles.ttFunc}>Larissa Taxad</h3>
-      </div>
-    </div>
-
-    <div className={styles.cardFunc}>
-      <img src={userIcon} alt="Imagem" className={styles.cardImgFunc} />
-      <div className={styles.cardTextoFunc}>
-        <h3 className={styles.ttFunc}>Jair Messiano</h3>
-      </div>
-    </div>
+      {modalAberto && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <button className={styles.fecharModal} onClick={fecharModal}>✕</button>
+            <div className={styles.modalBody}>
+  <div className={styles.modalEsquerda}>
+    <img src={colaboradorSelecionado.imagem} alt="Foto" className={styles.modalFoto} />
+  </div>
+  <div className={styles.modalDireita}>
+    <h4 className={styles.textoModal}>{colaboradorSelecionado.nome}</h4>
+    <h4 className={styles.textoModal}>Idade: {colaboradorSelecionado.idade}</h4>
+    <h4 className={styles.textoModal}>Cargo: {colaboradorSelecionado.cargo}</h4>
+    <h4 className={styles.textoModal}>Email: {colaboradorSelecionado.email}</h4>
+  </div>
+</div>
+          </div>
+        </div>
+      )}
     </section>
 
 
-    <footer className={styles.contact}>
+<footer className={styles.contact}>
   <div className={styles.footerLeft}>
     <img src={logo} alt="foto logo footer" />
   </div>

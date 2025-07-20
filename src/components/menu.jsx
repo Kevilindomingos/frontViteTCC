@@ -2,7 +2,8 @@ import { useNavigate } from "react-router";
 import styles from "./Menu.module.css"
 import { useState } from "react";
 
-import { AlignJustify } from "lucide-react";
+import logo from '../assets/logo.png'
+import iconeDL from '../assets/iconeDL.png'
 
 export const Menu = () => {
     const navigate = useNavigate();
@@ -12,20 +13,17 @@ export const Menu = () => {
     const goToInfo = () => navigate('/List')
     const goToDaily = () => navigate('/DailyList')
 
-
+    /* sair para tela de login */
     const logOut = () => {
         localStorage.removeItem('user')
         navigate('/')
     }
 
  return(
-    <nav className={open ? styles.navBar : styles.navBarClosed}>
-        <img src={AlignJustify} onClick={() => setOpen(prev => !prev)} />
-        <p onClick={goToMain}>Main</p>
-        <p>Criar usuário</p>
-        <p onClick={goToInfo}>Lista de Idosos</p>
-        <p>Criar produto</p>
-        <p onClick={goToDaily}>Lista de produto</p>
+    <nav className={styles.navBar}>
+        <img onClick={goToMain} src={logo} style={{height: '74px', width: '55px'}}/>
+        <img onClick={goToInfo} src={iconeDL} style={{height: '35px', width: '35px'}}></img>
+        <img onClick={goToDaily} src={iconeDL} style={{height: '35px', width: '35px'}}></img>
         <p onClick={logOut}>Sair</p>
     </nav>
  )

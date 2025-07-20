@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { api } from './api/api'
 import { Menu } from './components/menu'
+import styles from './list.module.css'
 
 function List() {
 
@@ -30,15 +31,13 @@ function List() {
     if(error) return <p>{error}</p>
 
   return ( 
-    /*colocar menu */
     <>
-    <section>
+    <section className={styles.fundo}>
       <Menu/>
-      <div>
-      <h1>Lista de listas</h1>
+      <div className={StyleSheet.cardIdoso}>
       <ol>{list.map((item) => (
-        <ul key={item.id}><
-          img src={item.image} style={{height: "200px"}}/>
+        <ul key={item.id}>
+          <img src={item.image} style={{height: "61px"}}/>
           <strong>{item.name}</strong>
           <p>{item.bornAge}</p>
           <p>Quarto: {item.roomNumber}</p>
@@ -46,7 +45,6 @@ function List() {
           <button>Visualizar Lista de rotina</button>
           <p>Cuidador(a) responsável</p>
           <button>Larissa Taxad</button>
-          
         </ul>
       ))}
         </ol>
