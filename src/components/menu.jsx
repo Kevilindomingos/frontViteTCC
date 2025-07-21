@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import logo from '../assets/logo.png'
 import iconeDL from '../assets/iconeDL.png'
+import iconeList from '../assets/iconeList.png'
+import iconlogOut from '../assets/log-out.png'
 
 export const Menu = () => {
     const navigate = useNavigate();
@@ -22,9 +24,9 @@ export const Menu = () => {
  return(
     <nav className={styles.navBar}>
         <img onClick={goToMain} src={logo} style={{height: '74px', width: '55px'}}/>
-        <img onClick={goToInfo} src={iconeDL} style={{height: '35px', width: '35px'}}></img>
+        <img onClick={goToInfo} src={iconeList} style={{height: '35px', width: '35px'}}></img>
         <img onClick={goToDaily} src={iconeDL} style={{height: '35px', width: '35px'}}></img>
-        <p onClick={logOut}>Sair</p>
+        <img onClick={logOut} src={iconlogOut} alt="icone de sair" style={{height: '35px', width: '35px'}} />
     </nav>
  )
 }

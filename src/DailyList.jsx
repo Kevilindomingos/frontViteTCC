@@ -35,7 +35,7 @@ function DailyList() {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`/lists/${id}`)
+      await api.delete(`/dailyList/${id}`)
       setLists(lists.filter((u) => u.id !== id))
     } catch (err) {
       setError('Erro ao deletar o usuário', err)
@@ -61,7 +61,7 @@ function DailyList() {
         atvRealizadas: (editData.atvRealizadas, 10)
       }
   
-      await api.put(`/lists/${editListId}`, updatedData)
+      await api.put(`/dailyList/${editListId}`, updatedData)
       setEditListId(null)
       fetchLists()
     } catch (err) {

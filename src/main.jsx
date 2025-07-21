@@ -10,6 +10,7 @@ import App from './App'
 import List from './List';
 import DailyList from './DailyList';
 import AboutUs from './AboutUs';
+import DailyListById from './DailyListById'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/AboutUs' element={<AboutUs/>}/>
         <Route path='/List' element={<List/>}/>
         <Route path='/DailyList' element={<DailyList/>}/>
+        <Route path='/rotina/:id' element={<DailyListById/>}/>
       </Routes>
     </BrowserRouter>
   </StrictMode>,

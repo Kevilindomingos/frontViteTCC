@@ -10,6 +10,9 @@
     box-shadow: 6px 10px 31px 0px rgba(59,53,53,0.75);
 }
 
+.navBar img {
+    margin-bottom: 20px;
+}
 .navBar img:hover{
     cursor: pointer;
 }

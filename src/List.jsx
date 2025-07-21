@@ -1,9 +1,9 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from 'react'
 import { api } from './api/api'
 import { Menu } from './components/menu'
 import styles from './list.module.css'
 import userIcon from './assets/userIcon.png'
+
 
 function List() {
   const [list, setList] = useState([])
@@ -75,10 +75,10 @@ function List() {
             {list.map((item) => (
               <ul key={item.id}>
                 <img src={item.image} alt={item.name} />
-                <p>{item.bornAge}</p>
                 <strong>{item.name}</strong> 
+                <p>{item.bornAge}</p>
                 <p>Quarto: {item.roomNumber}</p>
-                <button>
+                <button className={styles.botaoFunc}>
                   <img src={userIcon} alt="icone do cuidador" style={{height: '32px', width: '32px'}} /> 
                   {item.caregiverName}
                 </button>
@@ -94,7 +94,7 @@ function List() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <button className={styles.closeButton} onClick={closeModal}>×</button>
-            <h3>Rotina Diária de {selectedElder.name}</h3>
+            
             
             {loadingRoutines ? (
               <p>Carregando rotinas...</p>
@@ -104,7 +104,8 @@ function List() {
               <div className={styles.routineContainer}>
                 {dailyRoutines.map((routine, index) => (
                   <div key={index} className={styles.routineCard}>
-                    <h4>Registro do Dia {index + 1}</h4>
+                    <h4 style={{fontSize: '1.2rem', paddingBottom: '3px'}}>Registro do Dia {index + 1} - {selectedElder.name}</h4>
+
                     <div className={styles.routineGrid}>
                       <div className={styles.routineItem}>
                         <span className={styles.routineLabel}>Refeições:</span>
@@ -115,7 +116,7 @@ function List() {
                       <div className={styles.routineItem}>
                         <span className={styles.routineLabel}>Medicamentos:</span>
                         <div className={styles.routineValue}>
-                          {formatRoutineData(routine.medicamentos)}
+                        {formatRoutineData(routine.medicamentos)}
                         </div>
                       </div>
                       <div className={styles.routineItem}>
