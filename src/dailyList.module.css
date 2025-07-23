@@ -1,0 +1,122 @@
+.fundo {
+  background-color: #360000;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.titulo {
+  color: #f9f4f9;
+  margin-bottom: 1rem;
+}
+.tituloForm {
+    color: #630000;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.formulario {
+    margin-top: 5vh;
+    min-width: 10%;
+    background-color: #f9f4f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.61);
+}
+
+.formulario input,
+.formulario select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: antiquewhite;
+  color: #360000;
+  font-weight: 600;
+}
+
+.formulario label{
+    color: #630000;
+    font-weight: bold;
+}
+
+.botao {
+  padding: 0.6rem 1rem;
+  background-color: #8a4742;
+  color: #f9f4f9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: 400;
+}
+
+.botao:hover {
+  background-color: #622d2a;
+}
+
+.selectRotina {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 400px;
+}
+
+.visualizacao {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #8a4742;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.visualizacao p {
+  margin: 0.5rem 0;
+}
+
+.visualizacao input {
+    background-color: antiquewhite;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    color: #360000;
+    padding: 6px;
+}
+
+.visualizacao button {
+    background-color: #360000;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    transition: all 0.1s ease-in-out;
+    font-weight: 400;
+}
+.visualizacao button:hover {
+    background-color: #57201b;
+    color: white;
+    border-radius: 3px;
+    border: none;
+}
+
+.botoesAcao {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.botoesAcao button {
+  background-color: #fff;
+  color: #630000;
+  border: 1px solid #630000;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.botoesAcao button:hover {
+  background-color: #630000;
+  color: white;
+}
+
+.cardVisualizacao {
+    width: 100%;
+    padding: 10%;
+    background-color: #834545;
+}
