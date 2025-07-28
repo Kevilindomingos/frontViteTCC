@@ -1,0 +1,177 @@
+.cards {
+  height: auto;
+  min-height: 60vh;
+  background-color: #F9F4E3;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  position: relative;
+  width: 350px;
+  height: 150px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #8d4843;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.cardImg {
+  width: 25%;
+  height: auto;
+  transition: transform 0.5s ease;
+  z-index: 1;
+  display: flex;
+  align-self: center;
+  margin-left: 35%;
+}
+
+.cardTexto h3 {
+  position: absolute;
+  top: 30px;
+  left: 100%;
+  width: 35%;
+  height: 100%;
+  color: var(--black);
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: left 0.5s ease;
+  z-index: 2;
+  font-family: "Cinzel", serif !important;
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+.cardImg {
+  position: relative;
+  left: 0;
+  transition: transform 0.5s ease;
+  transform: translateX(0);
+}
+
+.card:hover .cardImg {
+  transform: translateX(-100%);
+}
+
+.card:hover .cardTexto h3 {
+  top: 30%;
+  left: 30%;
+}
+
+.cardComplemento p {
+  margin-top: -7%;
+  width: 350px;
+  padding: 16px;
+  padding-top: 10%;
+  background-color: #8d4843;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 15px 15px;
+  font-size: 1rem;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .cards {
+    padding: 30px 15px;
+  }
+  
+  .card {
+    width: 320px;
+  }
+  
+  .cardComplemento p {
+    width: 320px;
+    margin-top: -22px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    width: 300px;
+    height: 140px;
+  }
+  
+  .cardComplemento p {
+    width: 300px;
+  }
+  
+  .cardTexto h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cardContainer {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .cardComplemento p {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 130px;
+  }
+  
+  .cardTexto h3 {
+    font-size: 1.8rem;
+  }
+  
+  .cardComplemento p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards {
+    padding: 20px 10px;
+  }
+  
+  .cardTexto h3 {
+    font-size: 1.5rem;
+    top: 20px;
+    right: 10px;
+  }
+  
+  .cardComplemento p {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+  
+  .cardImg {
+    margin-left: 30%;
+  }
+}

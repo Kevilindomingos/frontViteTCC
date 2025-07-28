@@ -1,0 +1,209 @@
+/* Adicionando :local para garantir escopo */
+
+
+  .wrapImg {
+    background-image: url('./assets/fundoLogin.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .blocoLogin {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Cabeçalho */
+  .wrapForm {
+    padding: 30px;
+    text-align: center;
+    background-color: #f9f4e3;
+  }
+
+  .fotoLogo {
+    margin-bottom: 2vh;
+    width: 100px;
+    height: auto;
+  }
+
+  .tituloLogo {
+    color: #630000;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* Formulário */
+  .wrapForm1 {
+    padding: 30px;
+    width: 100%;
+  }
+
+  .wrapForm1 form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .wrapForm1 input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #8d4843;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  .wrapForm1 input:focus {
+    outline: 2px solid #8d4843;
+    outline-offset: 2px;
+  }
+
+  /* Select */
+  .selectWrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .selectWrapper select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #8d4843;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1rem;
+    appearance: none;
+  }
+
+  /* Botões */
+  .selecaoBotoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .selecaoBotoes button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #8d4843;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+
+  .selecaoBotoes button:hover {
+    background-color: #630000;
+    transform: translateY(-2px);
+  }
+
+  .selecaoBotoes button[type="button"] {
+    background-color: #ccc;
+    color: #333;
+  }
+
+  .selecaoBotoes button[type="button"]:hover {
+    background-color: #bbb;
+  }
+
+  /* Mensagens */
+  .message {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .message.success {
+    background-color: #e6ffed;
+    color: #2d8a47;
+  }
+
+  .message.error {
+    background-color: #fff1f0;
+    color: #f5222d;
+  }
+
+  /* Ícone de mostrar senha */
+  .passwordToggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #630000;
+    user-select: none;
+  }
+
+  /* Título do formulário */
+  .formTitle {
+    background-color: #f9f4e3;
+    border-radius: 5px;
+    font-family: 'Cinzel', serif;
+    color: #630000;
+    width: 300px;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .blocoLogin {
+      flex-direction: column;
+    }
+    
+    .wrapForm, .wrapForm1 {
+      padding: 20px;
+    }
+    
+    .selecaoBotoes {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .formTitle {
+      width: 100%;
+      font-size: 1.3rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wrapImg {
+      padding: 10px;
+    }
+    
+    .tituloLogo {
+      font-size: 1.5rem;
+    }
+    
+    .wrapForm1 input, 
+    .selectWrapper select, 
+    .selecaoBotoes button {
+      padding: 10px 12px;
+    }
+  }
+
+  @media (max-width: 193px) {
+    .formTitle {
+      font-size: 10px;
+    }
+    .wrapForm1 button {
+      font-size: 10px;
+    }
+  }

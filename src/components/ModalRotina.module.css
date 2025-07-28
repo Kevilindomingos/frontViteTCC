@@ -1,0 +1,136 @@
+.fundoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.conteudoModal {
+  background-color: #f9f4e3fa;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.botaoFechar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.containerRotinas {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cardRotina {
+  background: #8a4742;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-left: 4px solid #630000c9;
+  color: white;
+}
+
+.cardRotina h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.gridRotina {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.itemRotina {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rotuloRotina {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.valorRotina {
+  background: rgba(0, 0, 0, 0.562);
+  padding: 10px;
+  border-radius: 6px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+@media (min-width: 768px) {
+  .gridRotina {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .conteudoModal {
+    padding: 20px;
+  }
+  
+  .cardRotina {
+    padding: 15px;
+  }
+  
+  .rotuloRotina {
+    font-size: 15px;
+  }
+  
+  .valorRotina {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .conteudoModal {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .cardRotina {
+    padding: 12px;
+  }
+  
+  .cardRotina h4 {
+    font-size: 1rem;
+  }
+  
+  .rotuloRotina {
+    font-size: 14px;
+  }
+  
+  .valorRotina {
+    padding: 6px;
+    font-size: 13px;
+  }
+  .erro {
+  color: #ff4d4f;
+  text-align: center;
+  font-weight: bold;
+}
+}

@@ -1,0 +1,45 @@
+.cardIdoso {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tituloCard {
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffffff;
+  background-color: #630000;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.listaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+  width: 100%;
+}
+
+@media (width < 768px) {
+  .cardIdoso {
+    padding: 15px;
+  }
+  
+  .tituloCard {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardIdoso {
+    padding: 10px;
+  }
+  
+  .tituloCard {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}

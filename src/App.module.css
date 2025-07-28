@@ -1,11 +1,12 @@
-.blocoLogin{
- display: flex;
- justify-content: space-between;
+.blocoLogin {
+  display: flex;
+  justify-content: space-between;
 }
 
 .wrapLogin {
   display: flex;
-  flex-direction: row-reverse; /* inverte os lados */
+  flex-direction: row-reverse;
+  /* inverte os lados */
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -13,133 +14,148 @@
 }
 
 .wrapImg {
-    width: 100%;
-    height: 100vh;
-    background-image: url('./assets/fundoLogin.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    animation: nois 1s linear;
+  width: 100%;
+  height: 100vh;
+  background-image: url('./assets/fundoLogin.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  animation: nois 1s linear;
 }
 
 .wrapForm {
-    width: 641px;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #630000f7;
-    color: var(--white);
-    flex-direction: column;
+  width: 641px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #630000f7;
+  color: var(--white);
+  flex-direction: column;
 }
 
-.tituloLogo{
-    display: flex;
-    text-wrap: wrap;
-    font-family: "Cinzel", serif;
-    text-align: center;
+.tituloLogo {
+  display: flex;
+  text-wrap: wrap;
+  font-family: "Cinzel", serif;
+  text-align: center;
 }
 
-.wrapForm1{
-    width: 60%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.wrapForm1 {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.wrapForm1 form{
-    height: 600px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    gap: 2vh;
-    animation: faderight 1s ease-in-out;
-    z-index: 999;
+.wrapForm1 form {
+  height: 600px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  gap: 2vh;
+  animation: faderight 1s ease-in-out;
+  z-index: 999;
 }
 
-.wrapForm1 input{
-    color: var(--redText);
-    padding: 10px;
-    border-radius: 12px;
-    width: 100%;
-    border: none;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.679);
-    font-size: 1rem;
+.wrapForm1 input {
+  color: var(--redText);
+  padding: 10px;
+  border-radius: 12px;
+  width: 100%;
+  border: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.679);
+  font-size: 1rem;
 }
 
-.wrapForm1 input:focus{
-   outline: none;
-   outline: 1px solid var(--white)
+.wrapForm1 input:focus {
+  outline: none;
+  outline: 1px solid var(--white)
 }
 
-.wrapForm1 input::placeholder{
-    color: var(--redText);
+.wrapForm1 input::placeholder {
+  color: var(--redText);
 }
 
-.wrapForm1 button{
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 20px;
-    width: 40%;
-    background-color: var(--white);
-    transition: all 200ms ease-in-out;
-    color: var(--redText);
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
+.wrapForm1 button {
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 40%;
+  background-color: var(--white);
+  transition: all 200ms ease-in-out;
+  color: var(--redText);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.wrapForm1 .userCad{
-    color: var(--white);
-    opacity: 0.5;
-    font-size: 0.7rem;
+.wrapForm1 .userCad {
+  color: var(--white);
+  opacity: 0.5;
+  font-size: 0.7rem;
 }
 
-.wrapForm1 .userCad:hover{
-    opacity: 1;
-    cursor: pointer;
+.wrapForm1 .userCad:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 
-p{
-    padding: 10px;
-    border-radius: 12px;
-    color: var(--white);
-    display: flex;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 250ms ease-in-out;
+p {
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--white);
+  display: flex;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 250ms ease-in-out;
 }
-p:hover{
+
+p:hover {
   background-color: var(--redText);
-    box-shadow: 9px 9px 10px -1px rgba(26, 1, 1, 0.877);
+  box-shadow: 9px 9px 10px -1px rgba(26, 1, 1, 0.877);
 }
+
+.botaoCadastro{
+  background-color: red;
+}
+
+.selecaoBotoes {
+  font-size: 10px;
+  display: flex;
+  gap: 1vh;
+  width: 100%;
+}
+
 @keyframes faderight {
-    0%{
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    100%{
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 
 @keyframes nois {
-    0%{
-       transform: translateX(-50px);
-       opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* css para a barra de categoria */
@@ -158,7 +174,7 @@ p:hover{
 
 .selectWrapper select {
   cursor: pointer;
-  padding-right: 10px ;
+  padding-right: 10px;
   padding: 10px;
   border-radius: 12px;
   border: none;
@@ -174,11 +190,12 @@ p:hover{
 
 
 @media (max-width: 1000px) {
-    .blocoLogin{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .blocoLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .wrapLogin {
     background-image: url('./assets/fundoLogin.webp');
     flex-direction: column;
@@ -193,7 +210,7 @@ p:hover{
     background-color: transparent;
     padding: 20px 0;
   }
-  
+
   .wrapForm1 {
     width: 80%;
     height: auto;
@@ -214,5 +231,15 @@ p:hover{
 
   .selectWrapper select {
     width: 100%;
+  }
+}
+
+@media (max-width: 192px){
+  .wrapForm1 button {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 8px;
   }
 }

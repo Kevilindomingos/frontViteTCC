@@ -9,7 +9,6 @@ import iconlogOut from '../assets/log-out.png';
 
 export const Menu = () => {
     const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
     const [userType, setUserType] = useState('');
 
     useEffect(() => {

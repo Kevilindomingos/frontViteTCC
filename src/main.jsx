@@ -11,6 +11,7 @@ import List from './List';
 import DailyList from './DailyList';
 import AboutUs from './AboutUs';
 import DailyListById from './DailyListById'
+import Cadastro from './Cadastro'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/List' element={<List/>}/>
         <Route path='/DailyList' element={<DailyList/>}/>
         <Route path='/rotina/:id' element={<DailyListById/>}/>
+        <Route path='/Cadastro' element={<Cadastro/>}/>
       </Routes>
     </BrowserRouter>
   </StrictMode>,

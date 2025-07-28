@@ -1,0 +1,188 @@
+.tituloS2 h5 {
+  height: 10vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #F9F4E3;
+  color: #630000;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Cinzel", serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.funcionarios {
+  height: auto;
+  min-height: 60vh;
+  background-color: #F9F4E3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.cardFunc {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 300px;
+  height: 80px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background-color: #630000ab;
+  transition: all 0.3s ease;
+  padding: 0 15px;
+}
+
+.cardFunc:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  background-color: #630000;
+}
+
+.cardImgFunc {
+  width: 44px;
+  height: auto;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.cardTextoFunc .ttFunc {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  background-color: #F9F4E3;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 500px;
+  max-width: 95%;
+  position: relative;
+}
+
+.fecharModal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #630000;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.modalEsquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.modalFoto {
+  width: 100%;
+  max-height: 150px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.textoModal {
+  background-color: #8d4843;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Chivo", sans-serif;
+  width: 100%;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.modalDireita {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .tituloS2 h5 {
+    font-size: 24px;
+    padding: 15px;
+  }
+  
+  .funcionarios {
+    padding: 30px 15px;
+  }
+  
+  .cardFunc {
+    width: 280px;
+    height: 70px;
+  }
+  
+  .modalBody {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modalEsquerda, .modalDireita {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tituloS2 h5 {
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  .cardFunc {
+    width: 100%;
+    max-width: 300px;
+    height: 60px;
+  }
+  
+  .cardTextoFunc .ttFunc {
+    font-size: 0.9rem;
+  }
+  
+  .modalContent {
+    padding: 1.5rem;
+  }
+  
+  .textoModal {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

@@ -1,4 +1,4 @@
-import style from './dailyList.module.css'
+import styles from './dailyList.module.css'
 import { useEffect, useState } from 'react'
 import { api } from './api/api'
 import { Menu } from './components/menu'
@@ -138,62 +138,211 @@ function DailyList() {
     }
   }
 
-  if (loading) return <p>Carregando rotinas...</p>
-  if (error) return <p>{error}</p>
+  if (loading) return <p className={styles.mensagemCarregando}>Carregando rotinas...</p>
+  if (error) return <p className={styles.mensagemErro}>{error}</p>
 
   return (
-    <>
-      <section className={style.fundo}>
+    <div className={styles.container}>
+      <section>
         <Menu />
-        
-        <div style={{ padding: '2rem' }}>
-          <h1 className={style.titulo}>Rotinas dos Idosos</h1>
-{/* CRIAÇÃO */}
-          <form className={style.formulario} onSubmit={handleNewSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: '400px' }} >
-            <h2 className={style.tituloForm}>Criar Nova Rotina</h2>
-            <label> Idoso: <select value={selectedIdosoId} onChange={(e) => setSelectedIdosoId(e.target.value)} required >
-                <option value="">Selecione um idoso</option>
-                {idosos.map((idoso) => (
-                  <option key={idoso.id} value={idoso.id}> {`${idoso.id} - ${idoso.name}`} </option>
+        <div className={styles.secao}>
+          <h1 className={styles.tituloPrincipal}>Rotinas dos Idosos</h1>
+
+          {/* CRIAÇÃO */}
+          <div className={styles.secao}>
+            <h2 className={styles.tituloSecao}>Criar Nova Rotina</h2>
+            <form onSubmit={handleNewSubmit} className={styles.formulario}>
+              <div className={styles.grupoInput}>
+                <label>
+                  Idoso:
+                  <select
+                    value={selectedIdosoId}
+                    onChange={(e) => setSelectedIdosoId(e.target.value)}
+                    required
+                  >
+                    <option value="">Selecione um idoso</option>
+                    {idosos.map((idoso) => (
+                      <option key={idoso.id} value={idoso.id}>
+                        {`${idoso.id} - ${idoso.name}`}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              
+              <div className={styles.grupoInput}>
+                <input
+                  type="text"
+                  name="horaRefeicao"
+                  value={newData.horaRefeicao}
+                  onChange={handleNewChange}
+                  placeholder="Hora da refeição"
+                  required
+                />
+              </div>
+              
+              <div className={styles.grupoInput}>
+                <input
+                  type="text"
+                  name="medicamentos"
+                  value={newData.medicamentos}
+                  onChange={handleNewChange}
+                  placeholder="Medicamentos"
+                  required
+                />
+              </div>
+              
+              <div className={styles.grupoInput}>
+                <input
+                  type="text"
+                  name="atvRealizadas"
+                  value={newData.atvRealizadas}
+                  onChange={handleNewChange}
+                  placeholder="Atividades realizadas"
+                  required
+                />
+              </div>
+              
+              <div className={styles.grupoInput}>
+                <input
+                  type="text"
+                  name="humorGeral"
+                  value={newData.humorGeral}
+                  onChange={handleNewChange}
+                  placeholder="Humor geral"
+                  required
+                />
+              </div>
+              
+              <div className={styles.grupoInput}>
+                <input
+                  type="text"
+                  name="higienePessoal"
+                  value={newData.higienePessoal}
+                  onChange={handleNewChange}
+                  placeholder="Higiene pessoal"
+                  required
+                />
+              </div>
+              
+              <button type="submit" className={styles.botao}>Criar rotina</button>
+            </form>
+          </div>
+
+          {/* SELECIONAR */}
+          <div className={styles.secao}>
+            <h2 className={styles.tituloSecao}>Selecionar rotina para editar ou visualizar</h2>
+            <div className={styles.grupoInput}>
+              <select
+                onChange={handleSelectChange}
+                value={selectedListId}
+              >
+                <option value="">Selecione...</option>
+                {lists.map((list) => (
+                  <option key={list.id} value={list.id}>
+                    {`Rotina ${list.id} - ${list.horaRefeicao}`}
+                  </option>
                 ))}
               </select>
-            </label>
-            <input type="text" name="horaRefeicao" value={newData.horaRefeicao} onChange={handleNewChange} placeholder="Hora da refeição" required />
-            <input type="text" name="medicamentos" value={newData.medicamentos} onChange={handleNewChange} placeholder="Medicamentos" required />
-            <input type="text" name="atvRealizadas" value={newData.atvRealizadas} onChange={handleNewChange} placeholder="Atividades realizadas" required />
-            <input type="text"  name="humorGeral" value={newData.humorGeral} onChange={handleNewChange} placeholder="Humor geral" required />
-            <input type="text" name="higienePessoal" value={newData.higienePessoal} onChange={handleNewChange} placeholder="Higiene pessoal" required />
-            <button className={style.botao} type="submit">Criar rotina</button>
-          </form>
-          {/* SELECIONAR */}
-          <h2 className={style.titulo} style={{ marginTop: '2rem' }}>Selecionar rotina para editar ou visualizar</h2>
-          <label>
-            <select className={style.selectRotina} onChange={handleSelectChange} value={selectedListId} style={{ marginTop: '0.5rem' }}>
-              <option value="">Selecione...</option>
-              {lists.map((list) => (
-                <option key={list.id} value={list.id}> {`Rotina ${list.id} - ${list.horaRefeicao}`} </option>
-              ))}
-            </select>
-          </label>
+            </div>
 
-          {/* EDIÇÃO */}
-          {editListId && (
-            <form className={style.visualizacao} onSubmit={handleUpdate} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '1rem', maxWidth: '400px'}}>
-              <input type="text" name="horaRefeicao" value={editData.horaRefeicao} onChange={handleEditChange} required />
-              <input type="text" name="medicamentos" value={editData.medicamentos} onChange={handleEditChange} required />
-              <input type="text" name="atvRealizadas" value={editData.atvRealizadas} onChange={handleEditChange} required />
-              <input type="text" name="humorGeral" value={editData.humorGeral} onChange={handleEditChange} required />
-              <input type="text" name="higienePessoal" value={editData.higienePessoal} onChange={handleEditChange} required />
-              <button type="submit">Salvar alterações</button>
-              <button type="button" onClick={() => { setEditListId(null)
-                  setSelectedListId('') }}> Cancelar </button>
-            </form>
-          )}
+            {/* EDIÇÃO */}
+            {editListId && (
+              <form
+                onSubmit={handleUpdate}
+                className={styles.formulario}
+              >
+                <div className={styles.grupoInput}>
+                  <input
+                    type="text"
+                    name="horaRefeicao"
+                    value={editData.horaRefeicao}
+                    onChange={handleEditChange}
+                    required
+                  />
+                </div>
+                
+                <div className={styles.grupoInput}>
+                  <input
+                    type="text"
+                    name="medicamentos"
+                    value={editData.medicamentos}
+                    onChange={handleEditChange}
+                    required
+                  />
+                </div>
+                
+                <div className={styles.grupoInput}>
+                  <input
+                    type="text"
+                    name="atvRealizadas"
+                    value={editData.atvRealizadas}
+                    onChange={handleEditChange}
+                    required
+                  />
+                </div>
+                
+                <div className={styles.grupoInput}>
+                  <input
+                    type="text"
+                    name="humorGeral"
+                    value={editData.humorGeral}
+                    onChange={handleEditChange}
+                    required
+                  />
+                </div>
+                
+                <div className={styles.grupoInput}>
+                  <input
+                    type="text"
+                    name="higienePessoal"
+                    value={editData.higienePessoal}
+                    onChange={handleEditChange}
+                    required
+                  />
+                </div>
+                
+                <div className={styles.grupoBotoes}>
+                  <button type="submit" className={styles.botao}>Salvar alterações</button>
+                  <button
+                    type="button"
+                    className={`${styles.botao} ${styles.botaoSecundario}`}
+                    onClick={() => {
+                      setEditListId(null)
+                      setSelectedListId('')
+                    }}
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {/* VISUALIZAR APENAS A ROTINA SELECIONADA */}
+            {selectedListId && (
+              <div className={styles.rotinaSelecionada}>
+                {lists
+                  .filter((list) => list.id === parseInt(selectedListId))
+                  .map((list) => (
+                    <div key={list.id}>
+                      <p className={styles.itemRotina}><strong>Hora da Refeição:</strong> {list.horaRefeicao}</p>
+                      <p className={styles.itemRotina}><strong>Medicamentos:</strong> {list.medicamentos}</p>
+                      <p className={styles.itemRotina}><strong>Atividades Realizadas:</strong> {list.atvRealizadas}</p>
+                      <p className={styles.itemRotina}><strong>Humor Geral:</strong> {list.humorGeral}</p>
+                      <p className={styles.itemRotina}><strong>Higiene Pessoal:</strong> {list.higienePessoal}</p>
+                      <div className={styles.grupoBotoes}>
+                        <button className={`${styles.botao} ${styles.botaoSecundario}`}
+                          onClick={() => handleDelete(list.id)}> Deletar </button>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            )}
+          </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
 
 export default DailyList
-
