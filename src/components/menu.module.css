@@ -1,59 +1,120 @@
 .navBar {
   background-color: #630000;
-  width: 81px;
-  min-height: 100vh; /* Alterado de height para min-height */
-  padding: 20px 10px; /* Aumentei o padding vertical */
+  width: 100px;
+  min-height: 100vh; 
+  padding: 20px 10px;
   display: flex;
   align-items: center;
   gap: 2vh;
   flex-direction: column;
   box-shadow: 6px 10px 31px 0px rgba(18, 18, 18, 0.907);
-  position: fixed; /* Fixa o menu na tela */
+  position: fixed; 
   left: 0;
   top: 0;
-  z-index: 1000; /* Garante que fique acima de outros elementos */
-  box-sizing: border-box; /* Inclui padding na largura total */
+  z-index: 1000;
+  box-sizing: border-box; 
+}
+
+.userArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  color: white;
+  width: 100%;
+}
+
+.userInitial {
+  width: 40px;
+  height: 40px;
+  background-color: #8d4843;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 0.7rem;
+  width: 100%;
+}
+
+.userName {
+  font-weight: bold;
+  white-space: nowrap;
+  max-width: 300%;
+}
+
+.userType {
+  background-color: #8d4843;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-top: 3px;
+  font-size: 0.6rem;
 }
 
 .navBar img {
   margin-bottom: 20px;
-  transition: transform 0.3s ease; /* Adiciona animação suave */
+  transition: transform 0.3s ease; 
 }
 
 .navBar img:hover {
   cursor: pointer;
-  transform: scale(1.1); /* Efeito de zoom no hover */
+  transform: scale(1.1); 
 }
 
-/* Estilo para a logo */
-.navBar img:first-child {
-  margin-top: 10px;
+.logo {
+  height: 74px;
+  width: 55px;
   margin-bottom: 30px;
 }
 
-/* Estilo para o ícone de logout */
-.navBar img:last-child {
-  margin-top: auto; /* Empurra para baixo */
+.menuIcon {
+  height: 35px;
+  width: 35px;
+}
+
+.logoutIcon {
+  height: 35px;
+  width: 35px;
+  margin-top: auto;
   margin-bottom: 20px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .navBar {
-    width: 70px;
+    width: 90px;
     padding: 15px 8px;
   }
   
-  .navBar img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 15px;
+  .userInitial {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
   
-  .navBar img:first-child {
+  .userInfo {
+    font-size: 0.6rem;
+  }
+  
+  .logo {
     height: 60px;
     width: 45px;
     margin-bottom: 25px;
+  }
+  
+  .menuIcon, .logoutIcon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 15px;
   }
 }
 
@@ -67,19 +128,31 @@
     padding: 5px 10px;
   }
   
-  .navBar img {
-    margin: 0;
-    width: 20px;
+  .userArea {
     height: 20px;
+    width: 20px;
   }
-  
-  .navBar img:first-child {
+  .userInitial{
+    display: none;
+  }
+  .userName{
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .logo {
     height: 40px;
     width: 30px;
     margin: 0;
   }
   
-  .navBar img:last-child {
+  .menuIcon, .logoutIcon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+  
+  .logoutIcon {
     margin-top: 0;
   }
 }

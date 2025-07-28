@@ -120,7 +120,6 @@ function DailyList() {
         alert('Por favor, selecione um idoso.')
         return
       }
-
       await api.post(`/list/${selectedIdosoId}/dailyList`, newData)
 
       setNewData({
@@ -148,18 +147,13 @@ function DailyList() {
         <div className={styles.secao}>
           <h1 className={styles.tituloPrincipal}>Rotinas dos Idosos</h1>
 
-          {/* CRIAÇÃO */}
+          {/* criar rotina */}
           <div className={styles.secao}>
             <h2 className={styles.tituloSecao}>Criar Nova Rotina</h2>
             <form onSubmit={handleNewSubmit} className={styles.formulario}>
               <div className={styles.grupoInput}>
-                <label>
-                  Idoso:
-                  <select
-                    value={selectedIdosoId}
-                    onChange={(e) => setSelectedIdosoId(e.target.value)}
-                    required
-                  >
+                <label>Idoso:
+                  <select value={selectedIdosoId} onChange={(e) => setSelectedIdosoId(e.target.value)} required >
                     <option value="">Selecione um idoso</option>
                     {idosos.map((idoso) => (
                       <option key={idoso.id} value={idoso.id}>
@@ -171,72 +165,38 @@ function DailyList() {
               </div>
               
               <div className={styles.grupoInput}>
-                <input
-                  type="text"
-                  name="horaRefeicao"
-                  value={newData.horaRefeicao}
-                  onChange={handleNewChange}
-                  placeholder="Hora da refeição"
-                  required
-                />
+                <input type="text" name="horaRefeicao" value={newData.horaRefeicao} 
+                onChange={handleNewChange} placeholder="Hora da refeição" required />
               </div>
               
               <div className={styles.grupoInput}>
-                <input
-                  type="text"
-                  name="medicamentos"
-                  value={newData.medicamentos}
-                  onChange={handleNewChange}
-                  placeholder="Medicamentos"
-                  required
-                />
+                <input type="text" name="medicamentos" value={newData.medicamentos}
+                  onChange={handleNewChange} placeholder="Medicamentos" required />
               </div>
               
               <div className={styles.grupoInput}>
-                <input
-                  type="text"
-                  name="atvRealizadas"
-                  value={newData.atvRealizadas}
-                  onChange={handleNewChange}
-                  placeholder="Atividades realizadas"
-                  required
-                />
+                <input type="text" name="atvRealizadas" value={newData.atvRealizadas}
+                  onChange={handleNewChange} placeholder="Atividades realizadas" required />
               </div>
               
               <div className={styles.grupoInput}>
-                <input
-                  type="text"
-                  name="humorGeral"
-                  value={newData.humorGeral}
-                  onChange={handleNewChange}
-                  placeholder="Humor geral"
-                  required
-                />
+                <input type="text" name="humorGeral" value={newData.humorGeral}
+                  onChange={handleNewChange} placeholder="Humor geral" required />
               </div>
               
               <div className={styles.grupoInput}>
-                <input
-                  type="text"
-                  name="higienePessoal"
-                  value={newData.higienePessoal}
-                  onChange={handleNewChange}
-                  placeholder="Higiene pessoal"
-                  required
-                />
+                <input type="text" name="higienePessoal" value={newData.higienePessoal}
+                  onChange={handleNewChange} placeholder="Higiene pessoal" required />
               </div>
-              
               <button type="submit" className={styles.botao}>Criar rotina</button>
             </form>
           </div>
 
-          {/* SELECIONAR */}
+          {/* selecionar rotina */}
           <div className={styles.secao}>
             <h2 className={styles.tituloSecao}>Selecionar rotina para editar ou visualizar</h2>
             <div className={styles.grupoInput}>
-              <select
-                onChange={handleSelectChange}
-                value={selectedListId}
-              >
+              <select onChange={handleSelectChange} value={selectedListId}>
                 <option value="">Selecione...</option>
                 {lists.map((list) => (
                   <option key={list.id} value={list.id}>
@@ -246,79 +206,41 @@ function DailyList() {
               </select>
             </div>
 
-            {/* EDIÇÃO */}
+            {/* editar a rotina */}
             {editListId && (
-              <form
-                onSubmit={handleUpdate}
-                className={styles.formulario}
-              >
+              <form onSubmit={handleUpdate} className={styles.formulario}>
                 <div className={styles.grupoInput}>
-                  <input
-                    type="text"
-                    name="horaRefeicao"
-                    value={editData.horaRefeicao}
-                    onChange={handleEditChange}
-                    required
-                  />
+                  <input type="text" name="horaRefeicao" value={editData.horaRefeicao} onChange={handleEditChange} required />
                 </div>
                 
                 <div className={styles.grupoInput}>
-                  <input
-                    type="text"
-                    name="medicamentos"
-                    value={editData.medicamentos}
-                    onChange={handleEditChange}
-                    required
-                  />
+                  <input type="text" name="medicamentos" value={editData.medicamentos} onChange={handleEditChange} required />
                 </div>
                 
                 <div className={styles.grupoInput}>
-                  <input
-                    type="text"
-                    name="atvRealizadas"
-                    value={editData.atvRealizadas}
-                    onChange={handleEditChange}
-                    required
-                  />
+                  <input type="text" name="atvRealizadas" value={editData.atvRealizadas} onChange={handleEditChange} required />
                 </div>
                 
                 <div className={styles.grupoInput}>
-                  <input
-                    type="text"
-                    name="humorGeral"
-                    value={editData.humorGeral}
-                    onChange={handleEditChange}
-                    required
-                  />
+                  <input type="text" name="humorGeral" value={editData.humorGeral} onChange={handleEditChange} required />
                 </div>
                 
                 <div className={styles.grupoInput}>
-                  <input
-                    type="text"
-                    name="higienePessoal"
-                    value={editData.higienePessoal}
-                    onChange={handleEditChange}
-                    required
-                  />
+                  <input type="text" name="higienePessoal" value={editData.higienePessoal} onChange={handleEditChange} required />
                 </div>
-                
                 <div className={styles.grupoBotoes}>
                   <button type="submit" className={styles.botao}>Salvar alterações</button>
-                  <button
-                    type="button"
-                    className={`${styles.botao} ${styles.botaoSecundario}`}
+                  <button type="button" className={`${styles.botao} ${styles.botaoSecundario}`}
                     onClick={() => {
                       setEditListId(null)
                       setSelectedListId('')
-                    }}
-                  >
-                    Cancelar
+                    }} > Cancelar
                   </button>
                 </div>
               </form>
             )}
 
-            {/* VISUALIZAR APENAS A ROTINA SELECIONADA */}
+            {/* visualizar apenas a rotina selecionada */}
             {selectedListId && (
               <div className={styles.rotinaSelecionada}>
                 {lists

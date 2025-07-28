@@ -29,7 +29,7 @@ function App() {
       const user = response.data.user
 
       localStorage.setItem('user', JSON.stringify(user))
-      localStorage.setItem('userType', user.type)  // Salva tipo separado
+      localStorage.setItem('userType', user.type)
       setUser(user)
       navigate('/AboutUs')
     } catch (error) {
@@ -63,7 +63,7 @@ function App() {
                 </select>
               </div>
               <div className={style.selecaoBotoes}>
-                <button style={{width: '200px'}}><a style={{all: 'unset'}} href='/Cadastro'>Não tem conta? Cadastre-se</a></button>
+                <button type='button' style={{width: '200px'}}><a style={{all: 'unset'}} href='/Cadastro'>Não tem conta? Cadastre-se</a></button>
                 <button type='submit'>Entrar</button>
               </div>
               {message && <p>{message}</p>}

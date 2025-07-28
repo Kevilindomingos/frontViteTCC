@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styles from "./aboutUs.module.css";
 import SliderSection from './components/sliderSection';
 import ValuesCards from './components/ValuesCards';
@@ -40,13 +41,35 @@ const colaboradores = [
 
 function AboutUs() {
   const imagens = [slide1, slide2, slide3];
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    // Recupera os dados do usuário do localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUserData(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <>
       <header className={styles.menuSuperior}>
         <div className={styles.divMenu}>
           <a href="/"><img src={logo} alt="logo do menu" style={{height: "56px"}}/></a>
-          <a href="/list"><img src={userIcon} alt="logo de user"/></a>
+          
+          <div className={styles.userArea}>
+            {userData ? (
+              <>
+                <span className={styles.userName}>{userData.name}</span>
+                <span className={styles.userType}>
+                  {userData.type === 'responsavel' ? 'Responsável' : 'Funcionário'}
+                </span>
+                <a href="/list"><img src={userIcon} alt="logo de user"/></a>
+              </>
+            ) : (
+              <a href="/login"><img src={userIcon} alt="Ícone do usuário" className={styles.userIcon} /></a>
+            )}
+          </div>
         </div>
       </header>
       <SliderSection imagens={imagens} />

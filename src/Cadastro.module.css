@@ -1,6 +1,3 @@
-/* Adicionando :local para garantir escopo */
-
-
   .wrapImg {
     background-image: url('./assets/fundoLogin.jpg');
     background-repeat: no-repeat;
@@ -71,7 +68,6 @@
     outline-offset: 2px;
   }
 
-  /* Select */
   .selectWrapper {
     position: relative;
     width: 100%;
@@ -87,7 +83,6 @@
     appearance: none;
   }
 
-  /* Botões */
   .selecaoBotoes {
     display: flex;
     gap: 15px;
@@ -121,7 +116,6 @@
     background-color: #bbb;
   }
 
-  /* Mensagens */
   .message {
     text-align: center;
     margin-top: 15px;
@@ -139,7 +133,6 @@
     color: #f5222d;
   }
 
-  /* Ícone de mostrar senha */
   .passwordToggle {
     position: absolute;
     right: 15px;
@@ -150,7 +143,6 @@
     user-select: none;
   }
 
-  /* Título do formulário */
   .formTitle {
     background-color: #f9f4e3;
     border-radius: 5px;

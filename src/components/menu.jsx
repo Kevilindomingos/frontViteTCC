@@ -9,12 +9,12 @@ import iconlogOut from '../assets/log-out.png';
 
 export const Menu = () => {
     const navigate = useNavigate();
-    const [userType, setUserType] = useState('');
+    const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        const typeFromStorage = localStorage.getItem('userType');
-        if (typeFromStorage) {
-            setUserType(typeFromStorage);
+        const storedUser = localStorage.getItem('user'); // Recupera todos os dados do usuário do localStorage
+        if (storedUser) {
+            setUserData(JSON.parse(storedUser));
         }
     }, []);
 
@@ -30,12 +30,26 @@ export const Menu = () => {
 
     return (
         <nav className={styles.navBar}>
-            <img onClick={goToMain} src={logo} style={{ height: '74px', width: '55px' }} />
-            <img onClick={goToInfo} src={iconeList} style={{ height: '35px', width: '35px' }} />
-            {userType !== 'responsavel' && (
-                <img onClick={goToDaily} src={iconeDL} style={{ height: '35px', width: '35px' }} />
+            {userData && (
+                <div className={styles.userArea}>
+                    <div className={styles.userInitial}>
+                        {userData.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div className={styles.userInfo}>
+                        <span className={styles.userName}>{userData.name}</span>
+                        <span className={styles.userType}>
+                            {userData.type === 'responsavel' ? 'Responsável' : 'Funcionário'}
+                        </span>
+                    </div>
+                </div>
             )}
-            <img onClick={logOut} src={iconlogOut} alt="icone de sair" style={{ height: '35px', width: '35px' }} />
+
+            <img onClick={goToMain} src={logo} className={styles.logo} />
+            <img onClick={goToInfo} src={iconeList} className={styles.menuIcon} />
+            {userData?.type !== 'responsavel' && (
+                <img onClick={goToDaily} src={iconeDL} className={styles.menuIcon} />
+            )}
+            <img onClick={logOut} src={iconlogOut} alt="icone de sair" className={styles.logoutIcon} />
         </nav>
     );
 };

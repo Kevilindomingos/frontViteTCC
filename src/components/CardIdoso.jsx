@@ -12,7 +12,7 @@ const CardIdoso = ({ idoso, onVisualizarRotina }) => {
       </div>
       <button className={styles.botaoCuidador}>
         <img src={userIcon} alt="Ícone do cuidador" className={styles.iconeCuidador} />
-        {idoso.caregiverName}
+        Cuidador: {idoso.caregiverName}
       </button>
       <button className={styles.botaoRotina} onClick={onVisualizarRotina}>
         Visualizar Rotina

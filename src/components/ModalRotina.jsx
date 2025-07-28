@@ -7,7 +7,7 @@ const formatarDadosRotina = (dados) => {
   return dados.split(' ').map((item, index) => (
     <span key={index}>
       {item}
-      {item.endsWith('h') && <br />}
+      {item.startsWith('') && ' '}
     </span>
   ));
 };

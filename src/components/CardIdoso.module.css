@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-wrap: nowrap; /* Alterado de wrap para nowrap */
+  flex-wrap: nowrap; 
 }
 
 .fotoIdoso {
@@ -18,26 +18,26 @@
 }
 
 .infoContainer {
-  display: flex; /* Novo - container flex para os dados */
+  display: flex; 
   align-items: center;
-  gap: 20px; /* Espaço entre os itens */
+  gap: 20px;
   flex: 1;
-  min-width: 0; /* Permite que os itens encolham */
+  min-width: 0; 
 }
 
 .infoItem {
   display: flex;
   flex-direction: column;
-  min-width: 80px; /* Largura mínima para cada informação */
+  min-width: 80px;
 }
 
 .infoContainer strong {
   font-size: 16px;
   color: #ffffff;
   display: block;
-  white-space: nowrap; /* Impede quebra de linha */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+  text-overflow: ellipsis; 
 }
 
 .infoContainer p {
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-left: auto; /* Empurra para a direita */
+  margin-left: auto;
 }
 
 .botaoRotina {
@@ -83,7 +83,6 @@
   width: 16px;
 }
 
-/* Responsividade - mantida como estava */
 @media (max-width: 768px) {
   .card {
     gap: 12px;
